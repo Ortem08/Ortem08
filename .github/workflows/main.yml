@@ -3,7 +3,7 @@ name: Generate Isometric Calendar
 on:
   schedule:
     - cron: "0 5 * * *"
-  workflow_dispatch: 
+  workflow_dispatch:  # Возможность запуска вручную
 
 jobs:
   metrics:
@@ -18,6 +18,9 @@ jobs:
           plugin_isocalendar: yes
           plugin_isocalendar_duration: full-year
 
+      - name: Checkout репозиторий
+        uses: actions/checkout@v4
+        
       - name: Commit and push changes
         run: |
           git config --global user.name "github-actions[bot]"
