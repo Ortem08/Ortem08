@@ -1,0 +1,27 @@
+name: Generate Isometric Calendar
+
+on:
+  schedule:
+    - cron: "0 5 * * *"
+  workflow_dispatch: 
+
+jobs:
+  metrics:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate Isometric Contributions
+        uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.plugin.isocalendar.fullyear.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: ""
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: full-year
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add metrics.plugin.isocalendar.fullyear.svg
+          git commit -m "Обновление изометрического графика активности" || echo "No changes to commit"
+          git push
