@@ -1,4 +1,5 @@
 ## Hi there 👋
+![Isometric Contributions](https://raw.githubusercontent.com/Ortem08/Ortem08/main/metrics.plugin.isocalendar.fullyear.svg)
 
 <!--
 **Ortem08/Ortem08** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
