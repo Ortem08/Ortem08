@@ -25,6 +25,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git pull
           git add metrics.plugin.isocalendar.fullyear.svg
           git commit -m "Обновление изометрического графика активности" || echo "No changes to commit"
           git push
